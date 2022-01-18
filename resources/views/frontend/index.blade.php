@@ -42,7 +42,7 @@
             <div class="col-md-5 col-xs-12 pull-left">
               <div class="reservation-form-shadow">
 
-                <form method="post" enctype="multipart/form-data" action="{{url('admin/booking')}}" id="car-select-form">
+                <form method="post" enctype="multipart/form-data" action="{{ url('book') }}" id="car-select-form">
                 @csrf
 
                   <div class="alert alert-danger hidden" id="car-select-form-msg">
@@ -72,7 +72,7 @@
                 <tr>
                     <th>Espaces disponibles <span class="text-danger">*</span></th>
                     <td>
-                        <select class="form-control room-list" name="room_id">
+                        <select class="form-control room-list" name="type_stade">
                         <option value="volvo">Volvo</option>
                         </select>
                         <p>Prix: <span class="show-room-price"></span></p>

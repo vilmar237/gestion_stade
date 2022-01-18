@@ -21,6 +21,7 @@ class CreateReservationsTable extends Migration
             $table->datetime('fin');
             $table->integer('prix');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

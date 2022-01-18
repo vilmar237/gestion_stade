@@ -15,6 +15,7 @@ class CreateTypeTerrainsTable extends Migration
     {
         Schema::create('type_terrains', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }

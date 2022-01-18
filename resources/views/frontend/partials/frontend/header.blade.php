@@ -60,7 +60,20 @@
                               </ul>
                           </li>
                           <li><a href="#locations" class="scroll-to">Locations</a></li>
-                          <li><a href="#contact" class="scroll-to">Contact</a></li>
+                          @if(!Auth::guest() && (Auth::user()->role == "C" || Auth::user()->role == "D"))
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{Auth::user()->username}} <span class="caret"></span></a>
+                              <ul class="dropdown-menu" role="menu">
+                                  <li><a href="{{ route('frontend.booking_history',Auth::user()->id) }}">Historique des réservations</a></li>
+                                  <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a></li>
+                              </ul>
+                          </li>
+                          <form id="logout-form" action="{{ url('user-logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                            </form>
+                          @else
+                          <li><a href="{{route('login')}}" class="scroll-to">Connexion</a></li>
+                          @endif
                       </ul>
                       <!-- Nav-Links end -->
                   </div>
