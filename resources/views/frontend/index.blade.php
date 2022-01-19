@@ -42,7 +42,7 @@
             <div class="col-md-5 col-xs-12 pull-left">
               <div class="reservation-form-shadow">
 
-                <form method="post" enctype="multipart/form-data" action="{{ url('book') }}" id="car-select-form">
+                <form method="post" enctype="multipart/form-data" action="{{ url('book') }}">
                 @csrf
 
                   <div class="alert alert-danger hidden" id="car-select-form-msg">
@@ -61,34 +61,34 @@
                   @endif
 
                   <table class="table table-bordered">
-                <tr>
-                    <th>Date d'arrivée <span class="text-danger">*</span></th>
-                    <td><input name="debut" type="text" class="form-control datetimepicker" /></td>
-                </tr>
-                <tr>
-                    <th>Date de départ <span class="text-danger">*</span></th>
-                    <td><input name="fin" type="text" class="form-control datetimepicker" /></td>
-                </tr>
-                <tr>
-                    <th>Espaces disponibles <span class="text-danger">*</span></th>
-                    <td>
-                        <select class="form-control room-list" name="type_stade">
-                        <option value="volvo">Volvo</option>
-                        </select>
-                        <p>Prix: <span class="show-room-price"></span></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        
-                    	<input type="hidden" name="customer_id" value="1" />
-                       
-                        <input type="hidden" name="roomprice" class="room-price" value="" />
-                    	<input type="hidden" name="ref" value="front" />
-                        <input type="submit" class="btn btn-primary" />
-                    </td> 
-                </tr>
-            </table>
+                      <tr>
+                          <th>Date d'arrivée <span class="text-danger">*</span></th>
+                          <td><input name="debut" type="text" class="form-control datetimepicker" /></td>
+                      </tr>
+                      <tr>
+                          <th>Date de départ <span class="text-danger">*</span></th>
+                          <td><input name="fin" type="text" class="form-control datetimepicker" /></td>
+                      </tr>
+                      <tr>
+                          <th>Espaces disponibles <span class="text-danger">*</span></th>
+                          <td>
+                              <select class="form-control room-list" name="type_stade">
+                              <option value="volvo">Volvo</option>
+                              </select>
+                              <p>Prix: <span class="show-room-price"></span></p>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td colspan="2">
+                              
+                            <input type="hidden" name="customer_id" value="1" />
+                            
+                              <input type="hidden" name="roomprice" class="room-price" value="" />
+                            <input type="hidden" name="ref" value="front" />
+                              <input type="submit" class="btn btn-primary" />
+                          </td> 
+                      </tr>
+                  </table>
 
                   
                  

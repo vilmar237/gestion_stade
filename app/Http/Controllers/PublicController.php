@@ -114,16 +114,12 @@ class PublicController extends Controller
                 ])->id;
 
                 $booking = Reservation::find($id);
-                $booking->journey_date = date('d-m-Y');
-                $booking->journey_time = date('H:i:s');
-                $booking->accept_status = 0; //0=yet to accept, 1= accept
-                $booking->ride_status = null;
-                $booking->booking_type = 0;
-                $booking->vehicle_typeid = $request->vehicle_type;
                 $booking->save();
 
             }
-
+            return back()->with('success', 'Requete envoyée.');
+        } else {
+            return redirect("login")->withErrors(["error" => "Veuillez vous connecter au préalable"], 'login');
         }
 
     }

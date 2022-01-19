@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'client'],function () {
-    Route::post('book', [App\Http\Controllers\PublicController::class, 'book'])->middleware('auth_user');
-    Route::get('booking-history/{id}', [App\Http\Controllers\PublicController::class, 'booking_history'])->middleware('auth_user')->name('frontend.booking_history');
-});
+
+Route::post('book', [App\Http\Controllers\PublicController::class, 'book'])->middleware('auth_user');
+Route::get('booking-history/{id}', [App\Http\Controllers\PublicController::class, 'booking_history'])->middleware('auth_user')->name('frontend.booking_history');
+
