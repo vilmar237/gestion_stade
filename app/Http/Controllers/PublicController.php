@@ -6,8 +6,11 @@ use Illuminate\Support\Facades\Auth as Login;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use App\Models\TypeTerrain;
 use App\Enums\UserRoles;
+use App\Models\Hour;
 use App\Models\User;
+use Carbon\Carbon;
 use Auth;
 
 class PublicController extends Controller
@@ -24,8 +27,16 @@ class PublicController extends Controller
     {
         $logged     = Login::check();
         $admins     = ($logged && in_array(Login::user()->role, [UserRoles::ADMIN, UserRoles::SUPER_ADMIN]));
+        $hours = Hour::pluck('heure', 'id');
+        $selectedID = 1;
+
+        $already_exists_reservations = Reservation::get();
+
+        $type_terrain = TypeTerrain::pluck('name', 'id');
+
+
         
-        return view('frontend.index', compact('admins'));
+        return view('frontend.index', compact('already_exists_reservations','hours','selectedID','type_terrain'));
     }
 
     public function user_login(Request $request)
@@ -99,6 +110,7 @@ class PublicController extends Controller
     {
         if (Auth::user() && Auth::user()->role == 'C') {
             $validation = Validator::make($request->all(), [
+                'day' => 'required',
                 'debut' => 'required',
                 'fin' => 'required',
                 'type_stade' => 'required',
@@ -107,13 +119,20 @@ class PublicController extends Controller
             if ($validation->fails()) {
                 return back()->withErrors($validation)->withInput();
             } else {
+                $timeDifference = Carbon::parse($request->fin)->diffInMinutes(Carbon::parse($request->debut));
+                $sd = $timeDifference / 60; // decimal hours
+                $whole = intval($sd);
+                $nouveauPrix = 10000*$whole;
                 $id = Reservation::create(['id_user' => Auth::user()->id,
+                    'day' => $request->day,
                     'debut' => $request->debut,
                     'fin' => $request->fin,
-                    'type_stade' => $request->type_stade,
+                    'id_type_terrain' => $request->type_stade,
+                    'prix' => $nouveauPrix,
                 ])->id;
 
                 $booking = Reservation::find($id);
+                //$booking->id_type_terrain = $request->type_stade;
                 $booking->save();
 
             }

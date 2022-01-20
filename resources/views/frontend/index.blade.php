@@ -62,19 +62,46 @@
 
                   <table class="table table-bordered">
                       <tr>
-                          <th>Date d'arrivée <span class="text-danger">*</span></th>
-                          <td><input name="debut" type="text" class="form-control datetimepicker" /></td>
+                          <th>Jour <span class="text-danger">*</span></th>
+                          <td><input id="datefield" name="day" min='1899-01-01' type="date" class="form-control" /></td>
                       </tr>
                       <tr>
-                          <th>Date de départ <span class="text-danger">*</span></th>
-                          <td><input name="fin" type="text" class="form-control datetimepicker" /></td>
+                          <th>Date de début <span class="text-danger">*</span></th>
+                          <td>
+                            <select class="form-control select1" name="debut">
+                                  <option>Choisir une heure de début</option>
+                                  @foreach ($hours as $key => $hour)
+                                        <option value="{{ $hour }}" {{ ( $key == $selectedID) ? 'selected' : '' }}> 
+                                            {{ $hour }} 
+                                        </option>
+                                  @endforeach    
+                              </select>
+                          </td>
+                      </tr>
+                      <tr>
+                          <th>Date de fin <span class="text-danger">*</span></th>
+                          <td>
+                            <select class="form-control select2" name="fin">
+                                  <option>Choisir une heure de fin</option>
+                                  @foreach ($hours as $key => $hour)
+                                      <option value="{{ $hour }}" {{ ( $key == $selectedID) ? 'selected' : '' }}> 
+                                          {{ $hour }} 
+                                      </option>
+                                  @endforeach    
+                              </select>
+                          </td>
                       </tr>
                       <tr>
                           <th>Espaces disponibles <span class="text-danger">*</span></th>
                           <td>
-                              <select class="form-control room-list" name="type_stade">
-                              <option value="volvo">Volvo</option>
-                              </select>
+                            <select class="form-control" name="type_stade">
+                                <option>Choisir l'activité à mener</option>
+                                @foreach ($type_terrain as $key => $type)
+                                    <option value="{{ $key }}" {{ ( $key == $selectedID) ? 'selected' : '' }}> 
+                                        {{ $type }} 
+                                    </option>
+                                @endforeach   
+                            </select>
                               <p>Prix: <span class="show-room-price"></span></p>
                           </td>
                       </tr>
@@ -105,8 +132,27 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
-    $(function () {
-        $('.datetimepicker').datetimepicker();
-    });
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+      mm = '0' + mm;
+    } 
+        
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("datefield").setAttribute("min", today);
+    document.getElementById("time1").min = "08:00";
+    document.getElementById("time2").max = "21:00";
+
+    t= $( ".select1 option:selected" ).text();
+    $( ".select2 option:selected" ).text();
+
+    alert(t);
 </script>
 @endpush
