@@ -1,6 +1,16 @@
-@extends('layouts.app')
+@extends('frontend.layouts.frontend_layout')
 
 @section('content')
+@guest
+                           
+
+    @if (Route::has('register'))
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+        </li>
+    @endif
+@else
+@endguest
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -17,7 +27,7 @@
                   @endif
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ url('user-login') }}">
                         @csrf
 
                         <div class="row mb-3">

@@ -14,7 +14,7 @@ class Reservation extends Model
     protected $table = "reservations";
 
     protected $fillable = [
-        'id_user', 'id_type_terrain', 'debut', 'fin', 'prix',
+        'id_user', 'id_type_terrain', 'day', 'debut', 'fin', 'prix', 'statut'
     ];
 
     public function user()

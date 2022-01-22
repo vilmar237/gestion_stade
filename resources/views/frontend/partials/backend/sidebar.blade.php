@@ -8,39 +8,39 @@
                 <img src="images/Untitled-1.jpg" alt="">
                 <a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
             </div>
-            <h5 class="name"><span class="font-w400">Hello,</span> Marquez</h5>
-            <p class="email">marquezzzz@mail.com</p>
+            <h5 class="name"><span class="font-w400">Hello,</span> Vilmar</h5>
+            <p class="email">vilmar@mail.com</p>
         </div>
         <ul class="metismenu" id="menu">
-            <li class="nav-label first">Main Menu</li>
+            <li class="nav-label first">Menu Principal</li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-144-layout"></i>
                     <span class="nav-text">Dashboard</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{url('admin/booking')}}">Réservations</a></li>
+                    <li><a href="{{url('admin/reservations')}}">Réservations</a></li>
                 </ul>
 
             </li>
-            <li class="nav-label">Types de chambres</li>
+            <li class="nav-label">Types de stades</li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                 <i class="flaticon-077-menu-1"></i>
-                    <span class="nav-text">Types de chambres</span>
+                    <span class="nav-text">Types de stades</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{url('admin/roomtype/create')}}">Ajouter</a></li>
-                    <li><a href="{{url('admin/roomtype')}}">Voir</a></li>
+                    <li><a href="{{url('admin/typestade/create')}}">Ajouter</a></li>
+                    <li><a href="{{url('admin/typestade/index')}}">Voir</a></li>
                     
                 </ul>
             </li>
             <li class="nav-label">Chambres</li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                 <i class="flaticon-077-menu-1"></i>
-                    <span class="nav-text">Chambres</span>
+                    <span class="nav-text">Stades</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{url('admin/rooms/create')}}">Ajouter</a></li>
-                    <li><a href="{{url('admin/rooms')}}">Voir</a></li>
+                    <li><a href="{{url('admin/stade/create')}}">Ajouter</a></li>
+                    <li><a href="{{url('admin/stade')}}">Voir</a></li>
                     
                 </ul>
             </li>

@@ -17,9 +17,11 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->integer('id_user');
             $table->integer('id_type_terrain');
+            $table->string('day');
             $table->string('debut');
             $table->string('fin');
             $table->integer('prix');
+            $table->integer('statut')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

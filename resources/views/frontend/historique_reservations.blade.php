@@ -14,12 +14,28 @@
             <div class="booking">
                 <div class="row">
                     <div class="col-lg-4">
-                        <h6 class="primary">Date de début</h6>
+                        <h6 class="primary">Jour</h6>
+                        <p> {{Carbon\Carbon::parse($booking->day)->format('d-m-Y') }}</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h6 class="primary">Heure de début</h6>
                         <p> {{ $booking->debut }}</p>
                     </div>
                     <div class="col-lg-4">
-                        <h6 class="primary">Date de fin</h6>
+                        <h6 class="primary">Heure de fin</h6>
                         <p> {{ $booking->fin }}</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h6 class="primary">Prix</h6>
+                        <p> {{ $booking->prix }}</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h6 class="primary">Statut</h6>
+                        @if($booking->statut == 0)
+                        <p> En attente de validation</p>
+                        @else
+                        <p> Réservation acceptée</p>
+                        @endif
                     </div>
                 </div>
             </div>

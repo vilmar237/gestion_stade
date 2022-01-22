@@ -50,12 +50,12 @@
     ***********************************-->
     <div id="main-wrapper">
 
-        @include('partials.backend.header')
-        @include('partials.backend.sidebar')
+        @include('frontend.partials.backend.header')
+        @include('frontend.partials.backend.sidebar')
 
         @yield('content')
 
-        @include('partials.backend.footer')
+        @include('frontend.partials.backend.footer')
 
         <!--**********************************
            Support ticket button start

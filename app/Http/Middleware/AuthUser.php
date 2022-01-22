@@ -14,6 +14,6 @@ class AuthUser
             return $next($request);
         }
 
-        return redirect("login");
+        return redirect("user-login");
     }
 }

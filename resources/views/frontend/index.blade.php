@@ -112,7 +112,7 @@
                             
                               <input type="hidden" name="roomprice" class="room-price" value="" />
                             <input type="hidden" name="ref" value="front" />
-                              <input type="submit" class="btn btn-primary" />
+                              <input type="submit" class="btn btn-primary" value="Réserver" />
                           </td> 
                       </tr>
                   </table>

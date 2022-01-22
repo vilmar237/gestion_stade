@@ -39,6 +39,12 @@ class PublicController extends Controller
         return view('frontend.index', compact('already_exists_reservations','hours','selectedID','type_terrain'));
     }
 
+    public function userlogin()
+    {
+
+        return view('auth.userlogin');
+    }
+
     public function user_login(Request $request)
     {
         if (Login::attempt(['email' => $request->email, 'password' => $request->password])) {
@@ -119,27 +125,34 @@ class PublicController extends Controller
             if ($validation->fails()) {
                 return back()->withErrors($validation)->withInput();
             } else {
-                $timeDifference = Carbon::parse($request->fin)->diffInMinutes(Carbon::parse($request->debut));
-                $sd = $timeDifference / 60; // decimal hours
-                $whole = intval($sd);
-                $nouveauPrix = 10000*$whole;
-                $id = Reservation::create(['id_user' => Auth::user()->id,
-                    'day' => $request->day,
-                    'debut' => $request->debut,
-                    'fin' => $request->fin,
-                    'id_type_terrain' => $request->type_stade,
-                    'prix' => $nouveauPrix,
-                ])->id;
+                if($request->debut != $request->fin)
+                {
+                    $timeDifference = Carbon::parse($request->fin)->diffInMinutes(Carbon::parse($request->debut));
+                    $sd = $timeDifference / 60; // decimal hours
+                    $whole = intval($sd);
+                    $nouveauPrix = 10000*$whole;
+                    $id = Reservation::create(['id_user' => Auth::user()->id,
+                        'day' => $request->day,
+                        'debut' => $request->debut,
+                        'fin' => $request->fin,
+                        'id_type_terrain' => $request->type_stade,
+                        'prix' => $nouveauPrix,
+                    ])->id;
 
-                $booking = Reservation::find($id);
-                //$booking->id_type_terrain = $request->type_stade;
-                $booking->save();
-
+                    $booking = Reservation::find($id);
+                    //$booking->id_type_terrain = $request->type_stade;
+                    $booking->save();
+                }
+                else{
+                    return back()->withErrors(['error' => 'L\'heure de début est égale à l\'heure de fin. Veuillez réessayer.']);
+                }
             }
-            return back()->with('success', 'Requete envoyée.');
+            return back()->withErrors(['success' => 'Reservation effectuée avec succès.']);
         } else {
-            return redirect("login")->withErrors(["error" => "Veuillez vous connecter au préalable"], 'login');
+            return redirect("user-login")->withErrors(["error" => "Veuillez vous connecter au préalable"]);
         }
 
     }
+
+    
 }

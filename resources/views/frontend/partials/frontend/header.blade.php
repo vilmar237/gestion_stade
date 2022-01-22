@@ -72,7 +72,7 @@
                             {{ csrf_field() }}
                             </form>
                           @else
-                          <li><a href="{{route('login')}}" class="scroll-to">Connexion</a></li>
+                          <li><a href="{{route('user-login')}}" class="scroll-to">Connexion</a></li>
                           @endif
                       </ul>
                       <!-- Nav-Links end -->
