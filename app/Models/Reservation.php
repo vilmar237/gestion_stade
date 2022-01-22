@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Reservation extends Model
 {
@@ -19,6 +20,10 @@ class Reservation extends Model
 
     public function user()
     {
-        return $this->hasOne("App\Model\User", "id", "user_id")->withTrashed();
+        return $this->hasOne("App\Models\User", "id", "user_id");
+    }
+
+    function customer(){
+        return $this->belongsTo(User::class);
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.backend_layout')
+@extends('frontend.layouts.backend_layout')
 @section('content')
 <div class="content-body">
     <div class="container-fluid">
@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Ajouter un Type de chambres</h4>
+                        <h4 class="card-title">Ajouter un Type de stade</h4>
                     </div>
                     <div class="card-body">
                             @if($errors->any())
@@ -24,30 +24,12 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form enctype="multipart/form-data" method="post" action="{{url('admin/roomtype')}}">
+                                    <form enctype="multipart/form-data" method="post" action="{{url('admin/typestade')}}">
                                     @csrf
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">TITRE</label>
                                             <div class="col-sm-9">
                                                 <input type="text"name="title" class="form-control" placeholder="TITRE">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">PRIX</label>
-                                            <div class="col-sm-9">
-                                                <input type="number" name="price" class="form-control" placeholder="PRIX">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">DETAILS</label>
-                                            <div class="col-sm-9">
-                                                <textarea name="detail" class="form-control"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">IMAGE</label>
-                                            <div class="col-sm-9">
-                                            <input type="file" multiple name="imgs[]" />
                                             </div>
                                         </div>
                                         <div class="form-group row">

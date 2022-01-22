@@ -25,17 +25,18 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get("/", [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth']);
     
     // TypeTerrain Routes
-    //Route::get('admin/typestade/{id}/delete',[App\Http\Controllers\TypeStadeController::class,'destroy']);
+    Route::get('admin/typestade/{id}/delete',[App\Http\Controllers\TypeStadeController::class,'destroy']);
     Route::resource('typestade',App\Http\Controllers\TypeStadeController::class);
 
     // Room
     //Route::get('admin/stade/{id}/delete',[App\Http\Controllers\HomeController::class,'destroy']);
     //Route::resource('admin/stade',App\Http\Controllers\HomeController::class);
 
-    // Booking
-    //Route::get('admin/reservation/{id}/delete',[App\Http\Controllers\HomeController::class,'destroy']);
-    //Route::get('admin/reservation/available-rooms/{checkin_date}',[App\Http\Controllers\HomeController::class,'available_rooms']);
-    //Route::resource('admin/reservation',App\Http\Controllers\HomeController::class);
+    // Reservation
+    Route::get('admin/reservation/{id}/delete',[App\Http\Controllers\ReservationController::class,'destroy']);
+    Route::get('admin/reservation/available-rooms/{checkin_date}',[App\Http\Controllers\ReservationController::class,'available_rooms']);
+    Route::resource('reservation',App\Http\Controllers\ReservationController::class);
+    Route::post('/reservation/approve/', [App\Http\Controllers\ReservationController::class, 'processApprove']);
 });
 
 

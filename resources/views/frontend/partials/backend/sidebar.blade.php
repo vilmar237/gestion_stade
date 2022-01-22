@@ -18,7 +18,7 @@
                     <span class="nav-text">Dashboard</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{url('admin/reservations')}}">Réservations</a></li>
+                    <li><a href="{{url('admin/reservation')}}">Réservations</a></li>
                 </ul>
 
             </li>
@@ -29,7 +29,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{url('admin/typestade/create')}}">Ajouter</a></li>
-                    <li><a href="{{url('admin/typestade/index')}}">Voir</a></li>
+                    <li><a href="{{url('admin/typestade')}}">Voir</a></li>
                     
                 </ul>
             </li>

@@ -15,10 +15,10 @@ class TypeStadeController extends Controller
     public function index()
     {
         $data=TypeTerrain::all();
-        return view('home',['data'=>$data]);
+        return view('typestade.index',['data'=>$data]);
     }
 
-    
+
     public function create()
     {
         return view('typestade.create');
@@ -28,7 +28,7 @@ class TypeStadeController extends Controller
     {
 
         $request->validate([
-            'name'=>'required',
+            'title'=>'required',
         ]);
 
         $data=new TypeTerrain;
@@ -36,5 +36,27 @@ class TypeStadeController extends Controller
         $data->save();
 
         return redirect('admin/typestade/create')->with('success','Les données ont été ajoutées.');
+    }
+
+    public function edit($id)
+    {   
+        $data=TypeTerrain::find($id);
+        return view('typestade.edit',['data'=>$data]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data=TypeTerrain::find($id);
+        $data->name=$request->title;
+        $data->save();
+
+
+        return redirect('admin/typestade/'.$id.'/edit')->with('success','Les données ont été mises à jour.');
+    }
+
+    public function destroy($id)
+    {
+        TypeTerrain::where('id',$id)->delete();
+       return redirect('admin/typestade')->with('success','Les données ont été supprimées.');
     }
 }

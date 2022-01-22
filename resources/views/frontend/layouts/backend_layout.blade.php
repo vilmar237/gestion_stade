@@ -81,12 +81,6 @@
 	<!-- Chart piety plugin files -->
     <script src="{{asset('backend/vendor/peity/jquery.peity.min.js')}}"></script>
 	
-	<!-- Apex Chart -->
-	<script src="{{asset('backend/vendor/apexchart/apexchart.js')}}"></script>
-	
-	<!-- Dashboard 1 -->
-	<script src="{{asset('backend/js/dashboard/dashboard-1.js')}}"></script>
-	
 	<script src="{{asset('backend/vendor/owl-carousel/owl.carousel.js')}}"></script>
     <script src="{{asset('backend/js/custom.min.js')}}"></script>
 	<script src="{{asset('backend/js/deznav-init.js')}}"></script>

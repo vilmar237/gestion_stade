@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Reservation;
 use App\Enums\UserRoles;
 use App\Enums\UserStatus;
 
@@ -48,4 +49,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'last_login' => 'datetime',
     ];
+
+    function bookings(){
+        return $this->hasMany(Reservation::class);
+    }
 }
