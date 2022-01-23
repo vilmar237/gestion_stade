@@ -23,6 +23,8 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('backend/images/favicon.png')}}">
 	<link rel="stylesheet" href="{{asset('backend/vendor/chartist/css/chartist.min.css')}}">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{asset('backend/vendor/toastr/css/toastr.min.css')}}">
     <link href="{{asset('backend/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
     <link href="{{asset('backend/css/style.css')}}" rel="stylesheet">
@@ -80,6 +82,8 @@
 	
 	<!-- Chart piety plugin files -->
     <script src="{{asset('backend/vendor/peity/jquery.peity.min.js')}}"></script>
+    <!-- Toastr -->
+    <script src="{{asset('backend/vendor/toastr/js/toastr.min.js')}}"></script>
 	
 	<script src="{{asset('backend/vendor/owl-carousel/owl.carousel.js')}}"></script>
     <script src="{{asset('backend/js/custom.min.js')}}"></script>

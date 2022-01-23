@@ -93,28 +93,60 @@
         event.preventDefault();
 
         let vari = $(this).attr("data-id");
+
         
+        //alert(vari);
         $.ajax({
                 url: '/admin/reservation/approve/',
                 method: 'post',
-                data: vari,
+                data: "vari="+vari,
                 dataType: 'json',
 
                 success:function(res) {
                     
 
                     if(res.status == 404) {
-                        toastr.clear();
-                        NioApp.Toast(res.message, 'error', {
-                        position: 'top-right'
-                        });
+                        //alert(res.message);
+                        toastr.error(res.message, "Reservation", {
+                            positionClass: "toast-top-right",
+                            timeOut: 5e3,
+                            closeButton: !0,
+                            debug: !1,
+                            newestOnTop: !0,
+                            progressBar: !0,
+                            preventDuplicates: !0,
+                            onclick: null,
+                            showDuration: "300",
+                            hideDuration: "1000",
+                            extendedTimeOut: "1000",
+                            showEasing: "swing",
+                            hideEasing: "linear",
+                            showMethod: "fadeIn",
+                            hideMethod: "fadeOut",
+                            tapToDismiss: !1
+                        })
                     }
 
                     else if(res.status == 200){
-                        toastr.clear();
-                        NioApp.Toast(res.message, 'info', {
-                        position: 'top-right'
-                        });
+                        //alert(res.message);
+                        toastr.success(res.message, "Reservation", {
+                            positionClass: "toast-top-right",
+                            timeOut: 5e3,
+                            closeButton: !0,
+                            debug: !1,
+                            newestOnTop: !0,
+                            progressBar: !0,
+                            preventDuplicates: !0,
+                            onclick: null,
+                            showDuration: "300",
+                            hideDuration: "1000",
+                            extendedTimeOut: "1000",
+                            showEasing: "swing",
+                            hideEasing: "linear",
+                            showMethod: "fadeIn",
+                            hideMethod: "fadeOut",
+                            tapToDismiss: !1
+                        })
                     }
                     //location.reload(true);
                 }

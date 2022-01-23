@@ -25,24 +25,24 @@ class ReservationController extends Controller
     public function processApprove(Request $request)
     {
         $id = $request->vari;
-        $reservation = Reservation::where('id', $id)->get();
+        $reservation = Reservation::find($id);
 
-        if (blank($reservation)) {
+        if (!$reservation) {
             return response()->json([
                 'status'=>404,
-                'message'=> 'aucune reservation existante'
+                'message'=> $id//'aucune reservation existante'
+            ]);
+        } else
+        {
+            $reservation->statut = 1;
+            $reservation->update();
+            //Reservation::whereIn('id',$id)->update(['statut' => 1]);
+            return response()->json([
+                'status'=>200,
+                'message'=> 'Reservation approuvée'
             ]);
         }
 
-        if ($action == 'sync') {
-            return $this->syncTranslations($languages);
-        } elseif ($action == 'regenerate') {
-            return $this->regenerateTranslations($languages);
-        }
-
-        return response()->json([
-            'status'=>404,
-            'message'=> __("error occured")
-        ]);
+        
     }
 }
