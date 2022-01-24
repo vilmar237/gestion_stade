@@ -16,14 +16,14 @@
                 <h1 class="title">Terrain de basket ball 10.000fr/heure
                   <span class="subtitle">bonapriso douala</span></h1>
                   <div class="car-img">
-                    <img src="img/car1.png" class="img-responsive" alt="car1">
+                    <img src="frontend/img/basket2.jpg" class="img-responsive" alt="car1">
                   </div>
                 </div>
                 <div class="item">
                   <h1 class="title">Terrain Futsall 10.000/heure
                     <span class="subtitle">bonapriso douala</span></h1>
                     <div class="car-img">
-                      <img src="img/car2.png" class="img-responsive" alt="car1">
+                      <img src="frontend/img/futsal.jpg" class="img-responsive" alt="car1">
                     </div>
                   </div>
                 </div>
@@ -102,7 +102,7 @@
                                     </option>
                                 @endforeach   
                             </select>
-                              <p>Prix: <span class="show-room-price"></span></p>
+                              <p>Prix: <span class="show-room-price">10.000f/Heure</span></p>
                           </td>
                       </tr>
                       <tr>

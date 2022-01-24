@@ -5,7 +5,7 @@
       <div class="col-md-5">
           <!-- Logo start -->
           <div class="brand">
-              <h1><a class="scroll-to" href="#top"><img class="img-responsive" src="img/logo-red.gif" alt="Terrain mutisports"></a></h1>
+              <h1><a class="scroll-to" href="#top"><img class="img-responsive" src="img/logo-red.gif" alt="Rebond"></a></h1>
           </div>
           <!-- Logo end -->
       </div>
@@ -15,16 +15,7 @@
               <div class="header-info pull-right">
                   <div class="contact pull-left">CONTACT: (237) 699999999</div>
                   <!-- Language Switch start -->
-                  <div class="language-switch pull-right">
-                      <div class="dropdown">
-                          <a data-toggle="dropdown" href="#" id="language-switch-dropdown">Select your language </a>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="language-switch-dropdown">
-                              <li><a href="#"><img src="img/flags/United-States.png" alt="usa"> English</a></li>
-                              <li><a href="#"><img src="img/flags/Germany.png" alt="germany"> German</a></li>
-                              <li><a href="#"><img src="img/flags/France.png" alt="france"> French</a></li>
-                          </ul>
-                      </div>
-                  </div>
+                 
                   <!-- Language Switch end -->
               </div>
           </div>
@@ -50,16 +41,21 @@
                       <ul class="nav navbar-nav navbar-right">
                           <li class="active"><a href="#top" class="scroll-to">Home</a></li>
                           <li><a href="#services" class="scroll-to">Services</a></li>
-                          <li><a href="#vehicles" class="scroll-to">stade Models</a></li>
-                          <li class="dropdown">
+                          
+
+                          {{--menu dropdown
+                            <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="caret"></span></a>
                               <ul class="dropdown-menu" role="menu">
                                   <li><a href="blog-posts.html">Blog Posts</a></li>
                                   <li><a href="blog-single-post.html">Blog Single Post</a></li>
                                   <li><a href="error404.html">Error 404</a></li>
                               </ul>
-                          </li>
-                          <li><a href="#locations" class="scroll-to">Locations</a></li>
+                          </li> --}}
+
+                          {{-- <li><a href="#locations" class="scroll-to">Locations</a></li> --}}
+
+
                           @if(!Auth::guest() && (Auth::user()->role == "C" || Auth::user()->role == "D"))
                           <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{Auth::user()->username}} <span class="caret"></span></a>

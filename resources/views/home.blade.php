@@ -174,7 +174,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-xxl-4">
+            {{-- <div class="col-xl-3 col-xxl-4">
                 <div class="card">
                     <div class="card-header border-0 pb-0">
                         <h4 class="fs-20 text-black">Current Statistic</h4>
@@ -230,9 +230,9 @@
                         </div>	
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-xl-6 col-xxl-12">
                 <div class="row">
                     <div class="col-sm-6">
@@ -329,7 +329,7 @@
                             </div>
                         </div>	
                     </div>
-                    <div class="col-sm-6">
+                    {{-- <div class="col-sm-6">
                         <div class="card">
                             <div class="card-header border-0 pb-0">
                                 <h4 class="mb-0 text-black fs-20">Buy Order</h4>
@@ -423,8 +423,8 @@
                                 <a href="coin-details.html" class="btn-link"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-12 mt-2">
+                    </div> --}}
+                    {{-- <div class="col-xl-12 mt-2">
                         <div class="card">
                             <div class="card-header d-sm-flex d-block pb-0 border-0">
                                 <div>
@@ -509,9 +509,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
-            </div>
+            {{-- </div>
             <div class="col-xl-6 col-xxl-12">
                 <div class="row">
                     <div class="col-sm-6">
@@ -1226,8 +1226,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> --}}
+        </div> --}}
     </div>
 </div>
 <!--**********************************
